@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListOfPeople>
+	<People>
+		<aadhar>123</aadhar>
+		<firstName>Swastik</firstName>
+		<lastName>Panda</lastName>
+	</People>
+</ListOfPeople>

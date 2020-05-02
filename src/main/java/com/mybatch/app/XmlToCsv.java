@@ -5,17 +5,18 @@ import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class MyApp {
-    public static void main(String[] args) {
-        // Spring Java config
-    	ApplicationContext context = new ClassPathXmlApplicationContext("spring-batch.xml", "spring.xml");
+public class XmlToCsv {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// Spring Java config
+    	ApplicationContext context = new ClassPathXmlApplicationContext("spring-batch-xml-csv.xml");
         
          
         JobLauncher jobLauncher = (JobLauncher) context.getBean("jobLauncher");
-        Job job = (Job) context.getBean("firstBatchJob");
+        Job job = (Job) context.getBean("reportJob");
         System.out.println("Starting the batch job");
         try {
             JobExecution execution = jobLauncher.run(job, new JobParameters());
@@ -25,5 +26,6 @@ public class MyApp {
             e.printStackTrace();
             System.out.println("Job failed");
         }
-    }
+	}
+
 }
