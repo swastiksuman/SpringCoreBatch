@@ -49,11 +49,12 @@
 			</bean>
 		</property>
 	</bean>
+	<bean id="peopleCustomWriter" class="com.mybatch.app.writer.PeopleCustomWriter"></bean>
 	<batch:job id="reportJob">
 		<batch:step id="step1">
 			<batch:tasklet>
 				<batch:chunk reader="itemReader"
-					writer="cvsFileItemWriter" processor="filterPeopleProcessor"
+					writer="peopleCustomWriter" processor="filterPeopleProcessor"
 					commit-interval="1">
 				</batch:chunk>
 			</batch:tasklet>
